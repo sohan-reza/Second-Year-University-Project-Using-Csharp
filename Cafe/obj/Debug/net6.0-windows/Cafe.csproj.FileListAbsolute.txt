@@ -24,3 +24,4 @@ C:\Users\ES\OneDrive\Desktop\Cafe\Cafe\bin\Debug\net6.0-windows\runtimes\win-x86
 C:\Users\ES\OneDrive\Desktop\Cafe\Cafe\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\ES\OneDrive\Desktop\Cafe\Cafe\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\ES\OneDrive\Desktop\Cafe\Cafe\obj\Debug\net6.0-windows\Cafe.csproj.CopyComplete
+C:\Users\ES\OneDrive\Desktop\Cafe\Cafe\obj\Debug\net6.0-windows\Cafe.Dashboard.resources

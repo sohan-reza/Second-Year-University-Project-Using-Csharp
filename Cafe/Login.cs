@@ -59,7 +59,9 @@ namespace Cafe
             {
                 if (username.Equals(textBox1.Text) && password.Equals(textBox2.Text))
                 {
-                    MessageBox.Show("Your are loged in!");
+                    this.Hide();
+                    Dashboard admin = new Dashboard();
+                    admin.Show();
                 }
                 else
                 {
