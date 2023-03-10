@@ -17,3 +17,4 @@ C:\Users\ES\OneDrive\Desktop\Cafe\Cafe\obj\Debug\net6.0-windows\Cafe.Form1.resou
 C:\Users\ES\OneDrive\Desktop\Cafe\Cafe\obj\Debug\net6.0-windows\Cafe.csproj.GenerateResource.cache
 C:\Users\ES\OneDrive\Desktop\Cafe\Cafe\obj\Debug\net6.0-windows\Cafe.Properties.Resources.resources
 C:\Users\ES\OneDrive\Desktop\Cafe\Cafe\obj\Debug\net6.0-windows\Cafe.Sohan.resources
+C:\Users\ES\OneDrive\Desktop\Cafe\Cafe\obj\Debug\net6.0-windows\Cafe.Login.resources

@@ -6,5 +6,11 @@ namespace Cafe
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Login loginObject = new Login();
+            loginObject.Show();
+        }
     }
 }
