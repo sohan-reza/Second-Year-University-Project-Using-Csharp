@@ -14,15 +14,66 @@ namespace Cafe
 {
     public partial class Dashboard : Form
     {
+        SqlDataAdapter ad;
+        DataSet ds;
+        int id = -1;
         public Dashboard()
         {
             InitializeComponent();
-           
+            panel2.Visible= false;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            panel1.Visible= false;
+            panel2.Visible = true;
 
+            fetchData();
+
+        }
+
+        void OnRowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //MessageBox.Show(e.RowIndex.ToString());
+            //textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+            //MessageBox.Show(e.RowIndex.ToString());
+
+
+            id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+            //MessageBox.Show("asdf");
+            
+          
+            // textBox1.Text = id.ToString();
+        }
+
+       
+        void test(object o, DataGridViewCellEventArgs e)
+        {
+            id = -1;
+        }
+        
+
+        private void fetchData()
+        {
+            dataGridView1.RowHeaderMouseClick += new DataGridViewCellMouseEventHandler(OnRowHeaderMouseClick);
+            dataGridView1.CellClick += new DataGridViewCellEventHandler(test);
+
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AutoSizeColumnsMode= DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AllowUserToResizeColumns = false;
+
+            SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\ES\\OneDrive\\Desktop\\Cafe\\Cafe\\MainDB.mdf;Integrated Security=True");
+            conn.Open();
+            ad = new SqlDataAdapter("SELECT * FROM Food", conn);
+            ds = new System.Data.DataSet();
+            ad.Fill(ds, "food");
+
+            dataGridView1.DataSource = ds.Tables[0];
+
+            conn.Close();
+
+            dataGridView1.Columns["Id"].ReadOnly = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -57,6 +108,7 @@ namespace Cafe
             {
                 String[] list = {textBox1.Text,textBox2.Text,textBox3.Text};
                 dbInsert(list, "Food");
+                button7_Click(null, null);
             }
         }
 
@@ -96,6 +148,74 @@ namespace Cafe
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            panel1.Visible= true;
+            panel2.Visible = false;
+        }
+
+
+        
+
+
+            private void Delete_Click(object sender, EventArgs e)
+            {
+            
+            if (id != -1)
+            {
+                try
+                {
+                    SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\ES\\OneDrive\\Desktop\\Cafe\\Cafe\\MainDB.mdf;Integrated Security=True");
+
+                    SqlCommand cd = new SqlCommand("Delete From Food Where id=" + id, conn);
+
+                    conn.Open();
+                    int k = cd.ExecuteNonQuery();
+
+                    id = -1;
+                    if(k > 0)
+                    {
+                        MessageBox.Show("Successfully Deleted.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Faild to delete ;)");
+                    }
+                    button2_Click(null, null);
+
+                    conn.Close();
+                }catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please select any row.");
+            }
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlCommandBuilder dbl = new SqlCommandBuilder(ad);
+                ad.Update(ds, "Food");
+                MessageBox.Show("Update successfull.");
+                button2_Click(null, null);
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

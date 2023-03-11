@@ -12,5 +12,10 @@ namespace Cafe
             Login loginObject = new Login();
             loginObject.Show();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
