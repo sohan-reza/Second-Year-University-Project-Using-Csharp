@@ -14,18 +14,23 @@ namespace Cafe
 {
     public partial class Dashboard : Form
     {
-        SqlDataAdapter ad;
-        DataSet ds;
+        SqlDataAdapter ad, ad2;
+        DataSet ds, ds2;
         int id = -1;
+
+        int drink_id = -1;
         public Dashboard()
         {
             InitializeComponent();
-            panel2.Visible= false;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            panel4.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            panel1.Visible= false;
+            panel3.Visible=false;
+            panel4.Visible=false;
             panel2.Visible = true;
 
             fetchData();
@@ -78,7 +83,11 @@ namespace Cafe
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            panel1.Visible = true;
+            panel2.Visible = true;
+            panel3.Visible = true;
+            panel4.Visible = false;
+          
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -157,16 +166,21 @@ namespace Cafe
 
         private void button1_Click(object sender, EventArgs e)
         {
-            panel1.Visible= true;
             panel2.Visible = false;
+            panel3.Visible = false;
+            panel4.Visible = false;
+            panel1.Visible = true;
+           
+           
+            
         }
 
 
         
 
 
-            private void Delete_Click(object sender, EventArgs e)
-            {
+        private void Delete_Click(object sender, EventArgs e)
+        {
             
             if (id != -1)
             {
@@ -216,6 +230,132 @@ namespace Cafe
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            textBox4.Text = string.Empty;
+            textBox5.Text = string.Empty;
+            textBox6.Text = string.Empty;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (textBox4.Text == string.Empty || textBox5.Text == string.Empty || textBox6.Text == string.Empty)
+            {
+                MessageBox.Show("Please fill the box!");
+            }
+            else
+            {
+                String[] list = { textBox4.Text, textBox5.Text, textBox6.Text };
+                dbInsert(list, "Drink");
+                button10_Click(null, null);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+            panel2.Visible = true;
+            panel3.Visible = true;
+            panel4.Visible  = true;
+
+            fetchDrinkData();
+        }
+
+        private void fetchDrinkData()
+        {
+            dataGridView2.RowHeaderMouseClick += new DataGridViewCellMouseEventHandler(RowHeaderClick);
+            dataGridView2.CellClick += new DataGridViewCellEventHandler(cellClick);
+
+            dataGridView2.AllowUserToAddRows = false;
+            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView2.AllowUserToResizeColumns = false;
+
+            SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\ES\\OneDrive\\Desktop\\Cafe\\Cafe\\MainDB.mdf;Integrated Security=True");
+            conn.Open();
+            ad2 = new SqlDataAdapter("SELECT * FROM Drink", conn);
+            ds2 = new System.Data.DataSet();
+            ad2.Fill(ds2, "drink");
+
+            dataGridView2.DataSource = ds2.Tables[0];
+
+            conn.Close();
+
+            dataGridView2.Columns["Id"].ReadOnly = true;
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlCommandBuilder dbl2 = new SqlCommandBuilder(ad2);
+                ad2.Update(ds2, "drink");
+                MessageBox.Show("Update successfull.");
+                button4_Click(null, null);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            if (drink_id != -1)
+            {
+                try
+                {
+                    SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\ES\\OneDrive\\Desktop\\Cafe\\Cafe\\MainDB.mdf;Integrated Security=True");
+
+                    SqlCommand cd = new SqlCommand("Delete From Drink Where id=" + drink_id, conn);
+
+                    conn.Open();
+                    int k = cd.ExecuteNonQuery();
+
+                    id = -1;
+                    if (k > 0)
+                    {
+                        MessageBox.Show("Successfully Deleted.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Faild to delete ;)");
+                    }
+                    button4_Click(null, null);
+
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please select any row.");
+            }
+        }
+
+        void RowHeaderClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            
+
+
+            drink_id = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells[0].Value);
+            
+        }
+
+
+        void cellClick(object o, DataGridViewCellEventArgs e)
+        {
+            drink_id = -1;
         }
     }
 }
