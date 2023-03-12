@@ -25,12 +25,14 @@ namespace Cafe
             panel2.Visible = false;
             panel3.Visible = false;
             panel4.Visible = false;
+            panel5.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             panel3.Visible=false;
             panel4.Visible=false;
+            panel5.Visible = false;
             panel2.Visible = true;
 
             fetchData();
@@ -87,6 +89,7 @@ namespace Cafe
             panel2.Visible = true;
             panel3.Visible = true;
             panel4.Visible = false;
+            panel5.Visible = false;
           
         }
 
@@ -169,6 +172,7 @@ namespace Cafe
             panel2.Visible = false;
             panel3.Visible = false;
             panel4.Visible = false;
+            panel5.Visible = false;
             panel1.Visible = true;
            
            
@@ -264,6 +268,7 @@ namespace Cafe
             panel2.Visible = true;
             panel3.Visible = true;
             panel4.Visible  = true;
+            panel5.Visible = false;
 
             fetchDrinkData();
         }
@@ -341,6 +346,15 @@ namespace Cafe
             {
                 MessageBox.Show("Please select any row.");
             }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            panel1.Visible= true;
+            panel2.Visible = true;
+            panel3.Visible = true;
+            panel4.Visible = true;
+            panel5.Visible = true;
         }
 
         void RowHeaderClick(object sender, DataGridViewCellMouseEventArgs e)

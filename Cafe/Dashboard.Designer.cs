@@ -61,6 +61,8 @@
             this.Delete = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button13 = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -426,11 +428,33 @@
             this.dataGridView1.Size = new System.Drawing.Size(693, 442);
             this.dataGridView1.TabIndex = 6;
             // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button13.Location = new System.Drawing.Point(715, 175);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(149, 37);
+            this.button13.TabIndex = 6;
+            this.button13.Text = "Statistics";
+            this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.RosyBrown;
+            this.panel5.Location = new System.Drawing.Point(12, 11);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(696, 504);
+            this.panel5.TabIndex = 3;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(876, 527);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.button13);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -488,5 +512,7 @@
         private Button button12;
         private Button button11;
         private DataGridView dataGridView2;
+        private Button button13;
+        private Panel panel5;
     }
 }
