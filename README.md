@@ -21,5 +21,15 @@ Download the repository:
 1. Newtonsoft.Json
 2. System.Data.SqlClient
 
+# Screenshots
+
+![Cafe Screenshot](images/one.png)
+![Cafe Screenshot](images/two.png)
+![Cafe Screenshot](images/three.png)
+![Cafe Screenshot](images/four.png)
+![Cafe Screenshot](images/five.png)
+![Cafe Screenshot](images/six.png)
+![Cafe Screenshot](images/seven.png)
+![Cafe Screenshot](images/eight.png)
 
 
