@@ -1,0 +1,13 @@
+C:\Users\ES\OneDrive\Desktop\Second-Year-University-Project-Using-Csharp\Cafe\obj\Debug\net472\Cafe.csproj.AssemblyReference.cache
+C:\Users\ES\OneDrive\Desktop\Second-Year-University-Project-Using-Csharp\Cafe\obj\Debug\net472\Cafe.csproj.SuggestedBindingRedirects.cache
+C:\Users\ES\OneDrive\Desktop\Second-Year-University-Project-Using-Csharp\Cafe\obj\Debug\net472\Cafe.checkout.resources
+C:\Users\ES\OneDrive\Desktop\Second-Year-University-Project-Using-Csharp\Cafe\obj\Debug\net472\Cafe.Dashboard.resources
+C:\Users\ES\OneDrive\Desktop\Second-Year-University-Project-Using-Csharp\Cafe\obj\Debug\net472\Cafe.Form1.resources
+C:\Users\ES\OneDrive\Desktop\Second-Year-University-Project-Using-Csharp\Cafe\obj\Debug\net472\Cafe.Login.resources
+C:\Users\ES\OneDrive\Desktop\Second-Year-University-Project-Using-Csharp\Cafe\obj\Debug\net472\Cafe.Properties.Resources.resources
+C:\Users\ES\OneDrive\Desktop\Second-Year-University-Project-Using-Csharp\Cafe\obj\Debug\net472\Cafe.sales_dashboard.resources
+C:\Users\ES\OneDrive\Desktop\Second-Year-University-Project-Using-Csharp\Cafe\obj\Debug\net472\Cafe.csproj.GenerateResource.cache
+C:\Users\ES\OneDrive\Desktop\Second-Year-University-Project-Using-Csharp\Cafe\obj\Debug\net472\Cafe.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ES\OneDrive\Desktop\Second-Year-University-Project-Using-Csharp\Cafe\obj\Debug\net472\Cafe.AssemblyInfoInputs.cache
+C:\Users\ES\OneDrive\Desktop\Second-Year-University-Project-Using-Csharp\Cafe\obj\Debug\net472\Cafe.AssemblyInfo.cs
+C:\Users\ES\OneDrive\Desktop\Second-Year-University-Project-Using-Csharp\Cafe\obj\Debug\net472\Cafe.csproj.CoreCompileInputs.cache
